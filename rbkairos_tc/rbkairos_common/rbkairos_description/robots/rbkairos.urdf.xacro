@@ -23,6 +23,9 @@
 	<!-- Include UR-10 ARM -->
 	<xacro:include filename="$(find ur_description)/urdf/ur10.urdf.xacro" />
 
+	<!-- Include SPRAY TOOL -->
+	<xacro:include filename="$(find spray_tool_description)/urdf/spray_tool.xacro" />
+
     <!-- Arm Camera -->
     <xacro:include filename="$(find robotnik_sensors)/urdf/kinect.urdf.xacro" />
 
@@ -188,6 +191,12 @@
 				<child link="$(arg prefix)ur10_base_link" />
 			</joint>
 		</xacro:if>
+
+		<!-- SPRAY TOOL -->
+		<xacro:spray_tool prefix="$(arg prefix)spray_tool" parent="$(arg prefix)ur10_tool0">
+			<origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+		</xacro:spray_tool>
+
 
 
 		<!-- Schunk WSG-50 -->
